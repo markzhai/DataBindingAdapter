@@ -23,6 +23,17 @@ adapter.addViewTypeToLayoutMap(VIEW_TYPE_BOSS, R.layout.item_boss);
 
 Both have common manipulation methods, like `add`, `addAll`, `remove`, `clear`, `set`, etc.
 
+# Advanced Usage
+
+## Listener Binding
+
+The library also provide an easy way to add listener binding, and by default provide a whole item click listener.
+...
+
+## Decorator
+
+Sometimes, we may want to do some extra works in `onBindViewHolder`, thus we provide a `Decorator` to let user implement and set it in.
+
 # Contributors
 
 - [markzhai](https://github.com/markzhai)

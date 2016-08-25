@@ -39,17 +39,6 @@ public class SingleTypeAdapter<T> extends BaseViewAdapter<T> {
     }
 
     @Override
-    public void onBindViewHolder(BindingViewHolder holder, int position) {
-        final T item = mCollection.get(position);
-        holder.getBinding().setVariable(com.github.markzhai.recyclerview.BR.item, item);
-        holder.getBinding().setVariable(com.github.markzhai.recyclerview.BR.presenter, getPresenter());
-        holder.getBinding().executePendingBindings();
-        if (mDecorator != null) {
-            mDecorator.addDecorator(holder, position);
-        }
-    }
-
-    @Override
     public int getItemCount() {
         return mCollection.size();
     }
