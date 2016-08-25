@@ -9,7 +9,7 @@ This library provide two types of RecyclerView.Adapter.
 `SingleTypeAdapter`:
 
 ```Java
-SingleTypeAdapter adapter = new SingleTypeAdapter<>(this, R.layout.item_single_type);
+SingleTypeAdapter<EmployeeViewModel> adapter = new SingleTypeAdapter<>(this, R.layout.item_single_type);
 ```
 
 `MultiTypeAdapter`:
