@@ -30,4 +30,5 @@ dependencies {
     compile rootProject.ext.libSupportV4
 
     compile 'com.github.bumptech.glide:glide:3.7.0'
+//    compile 'com.github.markzhai:databinding-rv-adapter:1.0.0'
 }

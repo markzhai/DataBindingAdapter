@@ -1,6 +1,14 @@
 # DataBinding RecyclerViewAdapter
 
-Super simple RecyclerView adapter using Data Binding Technology.
+Super simple RecyclerView adapter using Data Binding Technology, you no longer need to write any adapter!
+
+# Import
+
+```groovy
+dependencies {
+    compile 'com.github.markzhai:databinding-rv-adapter:1.0.0'
+}
+```
 
 # Get Started
 

@@ -20,8 +20,8 @@ task clean(type: Delete) {
 def supportVersion = "24.2.0"
 
 project.ext {
-    applicationId = "com.github.markzhai.recyclerview"
-    buildToolsVersion = "23.0.3"
+    applicationId = "com.github.markzhai.recyclerview.demo"
+    buildToolsVersion = "24.0.1"
     compileSdkVersion = 23
     minSdkVersion = 14
     targetSdkVersion = 22
