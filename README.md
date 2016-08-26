@@ -27,26 +27,84 @@ Both have common manipulation methods, like `add`, `addAll`, `remove`, `clear`, 
 
 ## Manipulation
 
+```java
+singleTypeAdapter.addAll(EMPLOYEE_LIST);
+// clear and addAll
+singleTypeAdapter.set(EMPLOYEE_LIST);
+singleTypeAdapter.add(employee);
+// add with specific position
+singleTypeAdapter.add(2, employee);
+
+multiTypeAdapter.add(null, VIEW_TYPE_HEADER);
+multiTypeAdapter.addAll(EMPLOYEE_LIST, VIEW_TYPE_EMPLOYEE);
+multiTypeAdapter.addAll(EMPLOYER_LIST, VIEW_TYPE_EMPLOYER);
+multiTypeAdapter.add(2, employee, VIEW_TYPE_EMPLOYEE);
+
+// Like clear + addAll
+multiTypeAdapter.set(EMPLOYEE_LIST, VIEW_TYPE_EMPLOYEE);
+
+// both have these methods
+adapter.clear();
+adapter.remove(2);
+```
+
 ## Listener Binding
 
 The library also provide an easy way to add listener binding, and by default provide a whole item click listener.
-...
+
+```java
+
+public class DemoAdapterPresenter implements BaseViewAdapter.Presenter {
+    public void onItemClick(EmployeeViewModel model) {
+        Toast.makeText(MainActivity.this, "employee " + model.name, Toast.LENGTH_SHORT).show();
+
+    }
+    public void onItemClick(EmployerViewModel model) {
+        Toast.makeText(MainActivity.this, "employer " + model.name, Toast.LENGTH_SHORT).show();
+    }
+}
+
+multiTypeAdapter.setPresenter(new DemoAdapterPresenter());
+
+singleTypeAdapter.setPresenter(new SingleTypeAdapter.Presenter<EmployeeViewModel>() {
+
+    @Override
+    public void onItemClick(EmployeeViewModel model) {
+        Toast.makeText(MainActivity.this, model.name, Toast.LENGTH_SHORT).show();
+    }
+});
+```
 
 ## Decorator
 
 Sometimes, we may want to do some extra works in `onBindViewHolder`, thus we provide a `Decorator` to let user implement and set it in.
+
+```java
+public class DemoAdapterDecorator implements BaseViewAdapter.Decorator {
+
+    @Override
+    public void decorator(BindingViewHolder holder, int position, int viewType) {
+        // you may do something according to position or view type
+    }
+}
+
+adapter.setDecorator(new DemoAdapterDecorator());
+```
 
 # Contributors
 
 - [markzhai](https://github.com/markzhai)
 - [nimengbo](https://github.com/nimengbo)
 
+Welcome for issues and PR to fulfill your own features.
+
 # You may have interest in
 
 - [evant / binding-collection-adapter](https://github.com/evant/binding-collection-adapter)
 - [radzio / android-data-binding-recyclerview](https://github.com/radzio/android-data-binding-recyclerview)
 
-They are likely, but both have the problems that lose flexibility and force you to create something like a wrapper which is annoyed.
+They are somehow likely and powerful, enable you to save codes.
+However, both of them have the problems that lose flexibility and force you to create something like a wrapper which is annoyed.
 
 # License
 

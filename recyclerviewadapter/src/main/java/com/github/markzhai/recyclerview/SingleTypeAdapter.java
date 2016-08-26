@@ -48,7 +48,7 @@ public class SingleTypeAdapter<T> extends BaseViewAdapter<T> {
         notifyDataSetChanged();
     }
 
-    public void add(T viewModel, int position) {
+    public void add(int position, T viewModel) {
         mCollection.add(position, viewModel);
         notifyDataSetChanged();
     }
