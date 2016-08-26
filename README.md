@@ -25,6 +25,8 @@ Both have common manipulation methods, like `add`, `addAll`, `remove`, `clear`, 
 
 # Advanced Usage
 
+## Manipulation
+
 ## Listener Binding
 
 The library also provide an easy way to add listener binding, and by default provide a whole item click listener.
@@ -38,6 +40,13 @@ Sometimes, we may want to do some extra works in `onBindViewHolder`, thus we pro
 
 - [markzhai](https://github.com/markzhai)
 - [nimengbo](https://github.com/nimengbo)
+
+# You may have interest in
+
+- [evant / binding-collection-adapter](https://github.com/evant/binding-collection-adapter)
+- [radzio / android-data-binding-recyclerview](https://github.com/radzio/android-data-binding-recyclerview)
+
+They are likely, but both have the problems that lose flexibility and force you to create something like a wrapper which is annoyed.
 
 # License
 
