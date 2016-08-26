@@ -19,7 +19,7 @@ public class EmployerViewModel extends EmployeeViewModel {
     public String avatarUrl;
     public String position;
 
-    public EmployerViewModel(String name, String age, String avatarUrl, String position) {
+    public EmployerViewModel(String name, int age, String avatarUrl, String position) {
         super(name, age);
         this.avatarUrl = avatarUrl;
         this.position = position;

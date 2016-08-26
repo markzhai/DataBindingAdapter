@@ -20,9 +20,9 @@ import android.databinding.BaseObservable;
 public class EmployeeViewModel extends BaseObservable {
 
     public String name;
-    public String age;
+    public int age;
 
-    public EmployeeViewModel(String name, String age) {
+    public EmployeeViewModel(String name, int age) {
         this.name = name;
         this.age = age;
     }

@@ -57,6 +57,18 @@ public class MultiTypeAdapter extends BaseViewAdapter<Object> {
         addAll(viewModels, viewType);
     }
 
+    public void add(Object viewModel, int viewType) {
+        mCollection.add(viewModel);
+        mCollectionViewType.add(viewType);
+        notifyDataSetChanged();
+    }
+
+    public void add(int position, Object viewModel, int viewType) {
+        mCollection.add(position, viewModel);
+        mCollectionViewType.add(position, viewType);
+        notifyDataSetChanged();
+    }
+
     public void addAll(List viewModels, int viewType) {
         mCollection.addAll(viewModels);
         for (int i = 0; i < viewModels.size(); ++i) {
