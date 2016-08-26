@@ -24,7 +24,7 @@ public abstract class BaseViewAdapter<T> extends RecyclerView.Adapter<BindingVie
     }
 
     public interface Decorator {
-        void decorator(BindingViewHolder holder, int position);
+        void decorator(BindingViewHolder holder, int position, int viewType);
     }
 
     public BaseViewAdapter(Context context) {
@@ -38,7 +38,7 @@ public abstract class BaseViewAdapter<T> extends RecyclerView.Adapter<BindingVie
         holder.getBinding().setVariable(com.github.markzhai.recyclerview.BR.presenter, getPresenter());
         holder.getBinding().executePendingBindings();
         if (mDecorator != null) {
-            mDecorator.decorator(holder, position);
+            mDecorator.decorator(holder, position, getItemViewType(position));
         }
     }
 

@@ -92,8 +92,8 @@ public class MainActivity extends AppCompatActivity {
     public class DemoAdapterDecorator implements BaseViewAdapter.Decorator {
 
         @Override
-        public void decorator(BindingViewHolder holder, int position) {
-
+        public void decorator(BindingViewHolder holder, int position, int viewType) {
+            // you may do something according to position or view type
         }
     }
 
