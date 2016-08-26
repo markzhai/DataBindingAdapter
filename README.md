@@ -2,15 +2,13 @@
 
 Super simple RecyclerView adapter using Data Binding Technology, you no longer need to write any adapter!
 
-# Import
+# Get Started
 
 ```groovy
 dependencies {
     compile 'com.github.markzhai:databinding-rv-adapter:1.0.0'
 }
 ```
-
-# Get Started
 
 This library provide two types of RecyclerView.Adapter.
 
@@ -29,7 +27,7 @@ adapter.addViewTypeToLayoutMap(VIEW_TYPE_CODER, R.layout.item_coder);
 adapter.addViewTypeToLayoutMap(VIEW_TYPE_BOSS, R.layout.item_boss);
 ```
 
-Both have common manipulation methods, like `add`, `addAll`, `remove`, `clear`, `set`, etc.
+The only limitation is naming convention: your view model in xml should be named `item`, and your presenter should be named `presenter`, which I do think is a good practice.
 
 # Advanced Usage
 
