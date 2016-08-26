@@ -9,7 +9,7 @@
 
         <variable
             name="presenter"
-            type="com.github.markzhai.recyclerview.Dummy"/>
+            type="com.github.markzhai.recyclerview.demo.MainActivity.DemoAdapterPresenter"/>
 
         <variable
             name="item"
@@ -20,6 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:onClick="@{() -> presenter.onItemClick(item)}"
         android:weightSum="4"
         android:padding="15dp">
 

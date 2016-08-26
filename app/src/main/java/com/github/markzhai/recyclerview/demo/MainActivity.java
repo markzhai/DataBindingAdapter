@@ -20,7 +20,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
+import android.widget.Toast;
 
+import com.github.markzhai.recyclerview.BaseViewAdapter;
+import com.github.markzhai.recyclerview.BindingViewHolder;
 import com.github.markzhai.recyclerview.MultiTypeAdapter;
 import com.github.markzhai.recyclerview.SingleTypeAdapter;
 import com.github.markzhai.recyclerview.demo.databinding.ActivityMainBinding;
@@ -76,6 +79,24 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public class DemoAdapterPresenter implements BaseViewAdapter.Presenter {
+        public void onItemClick(EmployeeViewModel model) {
+            Toast.makeText(MainActivity.this, "employee " + model.name, Toast.LENGTH_SHORT).show();
+
+        }
+        public void onItemClick(EmployerViewModel model) {
+            Toast.makeText(MainActivity.this, "employer " + model.name, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public class DemoAdapterDecorator implements BaseViewAdapter.Decorator {
+
+        @Override
+        public void decorator(BindingViewHolder holder, int position) {
+
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,7 +105,22 @@ public class MainActivity extends AppCompatActivity {
 
         mSingleTypeAdapter = new SingleTypeAdapter<>(this, R.layout.item_employee);
 
+        mSingleTypeAdapter.setPresenter(new DemoAdapterPresenter());
+
+        // you can use the built-in presenter
+//        mSingleTypeAdapter.setPresenter(new SingleTypeAdapter.Presenter<EmployeeViewModel>() {
+//
+//            @Override
+//            public void onItemClick(EmployeeViewModel model) {
+//                Toast.makeText(MainActivity.this, model.name, Toast.LENGTH_SHORT).show();
+//            }
+//        });
+
+        mSingleTypeAdapter.setDecorator(new DemoAdapterDecorator());
+
         mMultiTypeAdapter = new MultiTypeAdapter(this);
+        mMultiTypeAdapter.setPresenter(new DemoAdapterPresenter());
+
         mMultiTypeAdapter.addViewTypeToLayoutMap(VIEW_TYPE_HEADER, R.layout.item_header);
         mMultiTypeAdapter.addViewTypeToLayoutMap(VIEW_TYPE_EMPLOYEE, R.layout.item_employee);
         mMultiTypeAdapter.addViewTypeToLayoutMap(VIEW_TYPE_EMPLOYER, R.layout.item_employer);
