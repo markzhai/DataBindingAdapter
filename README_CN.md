@@ -1,9 +1,11 @@
 # DataBinding RecyclerViewAdapter
 
-Free from writing adapters! **NO MORE CLASSES!**
+从写 adapter 解放出来！ **不需要任何多余的类**
 
-Super simple RecyclerView adapter using Data Binding Technology, no longer need to write any adapter!
-You don't need to write any extra class like ViewHolder or ItemView.
+使用 Data Binding 技术的超级简单的 RecyclerView adapter，再也不需要写什么adapter了！
+你也无须为此额外创建 ViewHolder 或者 ItemView 这种类。
+
+又多了一个理由使用 Data Binding！
 
 # Get Started
 
@@ -13,14 +15,16 @@ dependencies {
 }
 ```
 
-This library provide two types of RecyclerView.Adapter.
+该库提供了两种 RecyclerView.Adapter.
 
-SingleTypeAdapter:
+`SingleTypeAdapter`:
+
 ```Java
 SingleTypeAdapter<EmployeeViewModel> adapter = new SingleTypeAdapter<>(this, R.layout.item_single_type);
 ```
 
-MultiTypeAdapter:
+`MultiTypeAdapter`:
+
 ```Java
 MultiTypeAdapter adapter = new MultiTypeAdapter(this);
 adapter.addViewTypeToLayoutMap(VIEW_TYPE_HEADER, R.layout.item_header);
@@ -28,11 +32,11 @@ adapter.addViewTypeToLayoutMap(VIEW_TYPE_CODER, R.layout.item_coder);
 adapter.addViewTypeToLayoutMap(VIEW_TYPE_BOSS, R.layout.item_boss);
 ```
 
-The only limitation is naming convention: your view model in xml should be named `item`, and your presenter should be named `presenter`, which I do think is a good practice.
+唯一的限制是命名规范：你的 ViewModel 在 xml 中的明明必须为 `item`，而你的 事件监听对象 必须被命名为 `presenter`，我认为这对 Data Binding 来说是一种最佳实践。
 
-# Advanced Usage
+# 高级用法
 
-## Manipulation
+## 操作
 
 ```java
 singleTypeAdapter.addAll(EMPLOYEE_LIST);
@@ -55,9 +59,9 @@ adapter.clear();
 adapter.remove(2);
 ```
 
-## Listener Binding
+## 事件监听
 
-The library also provide an easy way to add listener binding, and by default provide a whole item click listener.
+这个库也提供了一种简单的方式来增加事件监听，并在 `SingleTypeAdapter` 中默认提供了一个整个 view 的对应 ViewModel 点击事件。
 
 ```java
 
@@ -82,9 +86,9 @@ singleTypeAdapter.setPresenter(new SingleTypeAdapter.Presenter<EmployeeViewModel
 });
 ```
 
-## Decorator
+## 装饰器
 
-Sometimes, we may want to do some extra works in `onBindViewHolder`, thus we provide a `Decorator` to let user implement and set it in.
+有时候，我们想在 `onBindViewHolder` 做些额外的事（比如根据 position 隐藏显示一些东西），所以额外提供了一个 `Decorator` 来让你实现并 set 进去。
 
 ```java
 public class DemoAdapterDecorator implements BaseViewAdapter.Decorator {
@@ -98,22 +102,22 @@ public class DemoAdapterDecorator implements BaseViewAdapter.Decorator {
 adapter.setDecorator(new DemoAdapterDecorator());
 ```
 
-# Contributors
+# 贡献者
 
 - [markzhai](https://github.com/markzhai)
 - [nimengbo](https://github.com/nimengbo)
 
-Welcome for issues and PR to fulfill your own features.
+欢迎提 issues 和 PR 来满足你们的需求。
 
-# You may have interest in
+# 其他使用了 Data Binding 的 adapter 库
 
 - [evant / binding-collection-adapter](https://github.com/evant/binding-collection-adapter)
 - [radzio / android-data-binding-recyclerview](https://github.com/radzio/android-data-binding-recyclerview)
 
-They are somehow likely and powerful, enable you to save codes.
-However, both of them have the problems that lose flexibility and force you to create something like a wrapper which is annoyed.
+他们在某种程度上十分相似且十分强大，可以让你省下不少代码。
+然后，两者都存在丧失灵活性的问题，并强制你创建一个莫名其妙的 wrapper。
 
-# License
+# 协议
 
     Copyright (C) 2016 MarkZhai (http://zhaiyifan.cn).
 
