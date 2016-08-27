@@ -1,5 +1,7 @@
 # DataBinding RecyclerViewAdapter
 
+[中文版 README](https://github.com/markzhai/DataBindingAdapter/blob/master/README_CN.md)
+
 Free from writing adapters! **NO MORE CLASSES!**
 
 Super simple RecyclerView adapter using Data Binding Technology, no longer need to write any adapter!
