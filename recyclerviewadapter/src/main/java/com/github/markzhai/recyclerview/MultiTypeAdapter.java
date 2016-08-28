@@ -17,6 +17,10 @@ import java.util.Map;
  */
 public class MultiTypeAdapter extends BaseViewAdapter<Object> {
 
+    public interface MultiViewTyper {
+        int getViewType(Object item);
+    }
+
     protected ArrayList<Integer> mCollectionViewType;
 
     private ArrayMap<Integer, Integer> mItemTypeToLayoutMap = new ArrayMap<>();
@@ -57,6 +61,13 @@ public class MultiTypeAdapter extends BaseViewAdapter<Object> {
         addAll(viewModels, viewType);
     }
 
+    public void set(List viewModels, MultiViewTyper viewTyper) {
+        mCollection.clear();
+        mCollectionViewType.clear();
+
+        addAll(viewModels, viewTyper);
+    }
+
     public void add(Object viewModel, int viewType) {
         mCollection.add(viewModel);
         mCollectionViewType.add(viewType);
@@ -73,6 +84,14 @@ public class MultiTypeAdapter extends BaseViewAdapter<Object> {
         mCollection.addAll(viewModels);
         for (int i = 0; i < viewModels.size(); ++i) {
             mCollectionViewType.add(viewType);
+        }
+        notifyDataSetChanged();
+    }
+
+    public void addAll(List viewModels, MultiViewTyper multiViewTyper) {
+        mCollection.addAll(viewModels);
+        for (int i = 0; i < viewModels.size(); ++i) {
+            mCollectionViewType.add(multiViewTyper.getViewType(viewModels.get(i)));
         }
         notifyDataSetChanged();
     }

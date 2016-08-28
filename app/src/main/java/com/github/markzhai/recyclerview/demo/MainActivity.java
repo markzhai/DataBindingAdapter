@@ -29,6 +29,8 @@ import com.github.markzhai.recyclerview.SingleTypeAdapter;
 import com.github.markzhai.recyclerview.demo.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -84,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "employee " + model.name, Toast.LENGTH_SHORT).show();
 
         }
+
         public void onItemClick(EmployerViewModel model) {
             Toast.makeText(MainActivity.this, "employer " + model.name, Toast.LENGTH_SHORT).show();
         }
@@ -132,5 +135,24 @@ public class MainActivity extends AppCompatActivity {
         mMultiTypeAdapter.add(null, VIEW_TYPE_HEADER);
         mMultiTypeAdapter.addAll(EMPLOYEE_LIST, VIEW_TYPE_EMPLOYEE);
         mMultiTypeAdapter.addAll(EMPLOYER_LIST, VIEW_TYPE_EMPLOYER);
+
+        final List<Object> data = new ArrayList<Object>();
+        data.addAll(EMPLOYEE_LIST);
+        data.addAll(EMPLOYER_LIST);
+        Collections.shuffle(data);
+        mMultiTypeAdapter.addAll(data, new MultiTypeAdapter.MultiViewTyper() {
+            @Override
+            public int getViewType(Object item) {
+                if (item instanceof EmployerViewModel) {
+                    return VIEW_TYPE_EMPLOYER;
+                }
+
+                if (item instanceof EmployeeViewModel) {
+                    return VIEW_TYPE_EMPLOYEE;
+                }
+
+                return 0;
+            }
+        });
     }
 }
