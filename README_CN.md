@@ -11,7 +11,7 @@
 
 ```groovy
 dependencies {
-    compile 'com.github.markzhai:databinding-rv-adapter:1.0.0'
+    compile 'com.github.markzhai:databinding-rv-adapter:1.0.1'
 }
 ```
 

@@ -71,13 +71,13 @@ public class MultiTypeAdapter extends BaseViewAdapter<Object> {
     public void add(Object viewModel, int viewType) {
         mCollection.add(viewModel);
         mCollectionViewType.add(viewType);
-        notifyDataSetChanged();
+        notifyItemInserted(0);
     }
 
     public void add(int position, Object viewModel, int viewType) {
         mCollection.add(position, viewModel);
         mCollectionViewType.add(position, viewType);
-        notifyDataSetChanged();
+        notifyItemInserted(position);
     }
 
     public void addAll(List viewModels, int viewType) {

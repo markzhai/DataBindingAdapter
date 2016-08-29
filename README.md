@@ -7,11 +7,13 @@ Free from writing adapters! **NO MORE CLASSES!**
 Super simple RecyclerView adapter using Data Binding Technology, no longer need to write any adapter!
 You don't need to write any extra class like ViewHolder or ItemView.
 
+One more reason you should try Data Binding!
+
 # Get Started
 
 ```groovy
 dependencies {
-    compile 'com.github.markzhai:databinding-rv-adapter:1.0.0'
+    compile 'com.github.markzhai:databinding-rv-adapter:1.0.1'
 }
 ```
 

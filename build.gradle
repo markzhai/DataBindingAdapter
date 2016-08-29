@@ -23,7 +23,7 @@ project.ext {
     applicationId = "com.github.markzhai.recyclerview.demo"
     buildToolsVersion = "24.0.1"
     compileSdkVersion = 23
-    minSdkVersion = 14
+    minSdkVersion = 9
     targetSdkVersion = 22
     versionCode = 1
     versionName = "1.0.0"
