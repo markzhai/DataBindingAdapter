@@ -73,7 +73,11 @@ public class MultiTypeAdapter extends BaseViewAdapter<Object> {
         mCollection.clear();
         mCollectionViewType.clear();
 
-        addAll(viewModels, viewType);
+        if (viewModels == null) {
+            add(null, viewType);
+        } else {
+            addAll(viewModels, viewType);
+        }
     }
 
     public void set(List viewModels, MultiViewTyper viewTyper) {
