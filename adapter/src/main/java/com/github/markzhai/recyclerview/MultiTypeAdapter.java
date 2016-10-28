@@ -73,7 +73,11 @@ public class MultiTypeAdapter extends BaseViewAdapter<Object> {
         mCollection.clear();
         mCollectionViewType.clear();
 
-        addAll(viewModels, viewType);
+        if (viewModels == null) {
+            add(null, viewType);
+        } else {
+            addAll(viewModels, viewType);
+        }
     }
 
     public void set(List viewModels, MultiViewTyper viewTyper) {
@@ -101,6 +105,14 @@ public class MultiTypeAdapter extends BaseViewAdapter<Object> {
             mCollectionViewType.add(viewType);
         }
         notifyDataSetChanged();
+    }
+
+    public void addAll(int position, List viewModels, int viewType) {
+        mCollection.addAll(position, viewModels);
+        for (int i = 0; i < viewModels.size(); i++) {
+            mCollectionViewType.add(position + i, viewType);
+        }
+        notifyItemRangeChanged(position, viewModels.size() - position);
     }
 
     public void addAll(List viewModels, MultiViewTyper multiViewTyper) {
