@@ -103,6 +103,14 @@ public class MultiTypeAdapter extends BaseViewAdapter<Object> {
         notifyDataSetChanged();
     }
 
+    public void addAll(int position, List viewModels, int viewType) {
+        mCollection.addAll(position, viewModels);
+        for (int i = 0; i < viewModels.size(); i++) {
+            mCollectionViewType.add(position + i, viewType);
+        }
+        notifyItemRangeChanged(position, viewModels.size() - position);
+    }
+
     public void addAll(List viewModels, MultiViewTyper multiViewTyper) {
         mCollection.addAll(viewModels);
         for (int i = 0; i < viewModels.size(); ++i) {
